@@ -1,0 +1,17 @@
+{% extends  "base.html" %}
+
+{% block contenido %}
+
+<h2>Taller Apps - Sobre nosotros</h2>
+<h4>Bienvenido a este sitio de taller .....</h4>
+<form action="/sobrenosotros" method="post">
+    {{ form.csrf_token() }}
+    {{ form.titulo.label }}
+    {{ form.titulo }}
+    {{ form.enviar }}
+</form>
+{% if titulo %}
+    <h2>{{ titulo }}</h2>
+{% endif %}
+
+{% endblock %}
