@@ -1,5 +1,5 @@
 from app import app, db
-from flask import render_template
+from flask import  render_template
 import formularios
 from models import Tarea
 
@@ -11,11 +11,22 @@ def index():
 @app.route('/sobrenosotros', methods = ['GET', 'POST'])
 def sobrenosotros():
         formulario = formularios.FormAgregarTareas()
+        
         if formulario.validate_on_submit() :
-                nueva_tarea = Tarea (titulo =  formulario.titulo.data)
-                db.session.add(nueva_tarea)
-                db.session.commit()
-                print('se envio correctamente', formulario.titulo.data)
+                
+                if formulario.eliminar.data:
+                        tarea = Tarea.query.filter_by(titulo=formulario.titulo.data).first()
+                        if tarea:
+                                db.session.delete(tarea)
+                                db.session.commit()
+                                print("Tarea eliminada correctamente")
+                        else: 
+                                print("no se encontro la tarea con ese nombre")
+                elif formulario.enviar.data:             
+                        nueva_tarea = Tarea (titulo =  formulario.titulo.data)
+                        db.session.add(nueva_tarea)
+                        db.session.commit()
+                        print('se envio correctamente', formulario.titulo.data)
                 return render_template('sobrenosotros.html', 
                                        form = formulario,
                                        titulo = formulario.titulo.data)
