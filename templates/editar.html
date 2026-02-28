@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-warning text-dark text-center">
+                <h4 class="mb-0">Editar tarea</h4>
+            </div>
+
+            <div class="card-body">
+
+                <p class="text-muted text-center">
+                    Modifica el título de la tarea y guarda los cambios.
+                </p>
+
+                <form method="post">
+                    {{ form.csrf_token() }}
+
+                    <div class="mb-3">
+                        {{ form.titulo.label(class="form-label fw-semibold") }}
+                        {{ form.titulo(class="form-control form-control-lg", placeholder="Escribe el nuevo título") }}
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a href="/sobrenosotros" class="btn btn-outline-secondary">
+                            Cancelar
+                        </a>
+
+                        {{ form.enviar(class="btn btn-success btn-lg") }}
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
