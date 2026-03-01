@@ -63,6 +63,6 @@ def eliminar(id):
     except Exception as e:
             print(f"Error al eliminar: {e}")
             db.session.rollback()
-    return redirect (url_for(sobrenosotros))
+    return redirect (url_for('sobrenosotros'))
         
-     
+        
