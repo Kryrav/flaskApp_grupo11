@@ -1,8 +1,68 @@
-{% extends  "base.html" %}
+{% extends "base.html" %}
 
 {% block contenido %}
+<div class="container my-5">
+    <div class="row align-items-center g-lg-5 py-5">
+        <div class="col-lg-7 text-center text-lg-start">
+            <h1 class="display-4 fw-bold lh-1 mb-3 text-primary">Taller APPS <span class="text-dark"> => {{subtitulo}}</span></h1>
+            <p class="col-lg-10 fs-4 text-muted">Desarrollo de una aplicación web moderna utilizando el micro-framework <strong>Flask</strong> y <strong>Bootstrap 5</strong>.</p>
+            
+            <div class="table-responsive mt-4 shadow-sm rounded">
+                <table class="table table-hover border">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col" class="ps-3">Desarrollador</th>
+                            <th scope="col">Rol en el Equipo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ps-3 fw-bold">Rene Alejandro Vasquez</td>
+                            <td><span class="badge bg-primary">Líder de Proyecto</span></td>
+                        </tr>
+                        <tr>
+                            <td class="ps-3">Elia Flores Bartolome</td>
+                            <td><span class="badge bg-secondary">Colaborador</span></td>
+                        </tr>
+                        <tr>
+                            <td class="ps-3">Daniel Alejandro Mollinedo</td>
+                            <td><span class="badge bg-secondary">Colaborador</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-    <h2>Taller Apps - Inicio</h2>
-    <h4>{{subtitulo}}</h4>
-    
+        <div class="col-md-10 mx-auto col-lg-5">
+            <div class="card shadow border-0 p-4 p-md-5">
+                <h3 class="h4 mb-3 text-center">Panel de Control</h3>
+                <p class="text-center text-muted mb-4">Bienvenido al área de gestión del proyecto.</p>
+                
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-primary btn-lg" type="button">
+                        <i class="bi bi-folder"></i> Ver Documentación
+                    </button>
+                    <button class="btn btn-dark btn-lg" type="button">
+                        <a href="https://github.com/Kryrav/flaskApp_grupo11.git" target="_blank" class="text-white text-decoration-none">
+                            <i class="bi bi-github"></i> Repositorio GitHub
+                        </a>                            
+                    </button>
+                </div>
+                
+                <hr class="my-4">
+                
+                <div class="row text-center">
+                    <div class="col">
+                        <p class="h5 mb-0">1.0</p>
+                        <small class="text-muted">Versión</small>
+                    </div>
+                    <div class="col">
+                        <p class="h5 mb-0">85%</p>
+                        <small class="text-muted">Progreso</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

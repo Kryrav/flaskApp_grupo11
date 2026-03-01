@@ -65,4 +65,7 @@ def eliminar(id):
             db.session.rollback()
     return redirect (url_for('sobrenosotros'))
         
-        
+@app.route('/tareas')
+def tareas():
+    lista_tareas = Tarea.query.all() 
+    return render_template('tareas.html', subtitulo="Lista Tareas", tareas=lista_tareas)    
