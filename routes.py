@@ -1,5 +1,5 @@
 from app import app, db
-from flask import render_template, redirect
+from flask import  render_template, redirect, url_for
 import formularios
 from models import Tarea
 
@@ -10,6 +10,7 @@ def index():
 
 @app.route('/sobrenosotros', methods=['GET', 'POST'])
 def sobrenosotros():
+
     formulario = formularios.FormAgregarTareas()
 
     if formulario.validate_on_submit():
@@ -25,7 +26,6 @@ def sobrenosotros():
         form=formulario,
         tareas=tareas
     )
-    
 @app.route('/saludo')
 def saludo():
         return 'Hola bienvenido a Taller Apps '
@@ -53,3 +53,16 @@ def editar(id):
         form=formulario,
         tarea=tarea
     )
+@app.route('/eliminar/<int:id>', methods=['GET', 'POST'])
+def eliminar(id):
+    tarea = Tarea.query.get_or_404(id)
+    try:
+        db.session.delete(tarea)
+        db.session.commit()
+        print(f"Tarea{id} eliminada")
+    except Exception as e:
+            print(f"Error al eliminar: {e}")
+            db.session.rollback()
+    return redirect (url_for('sobrenosotros'))
+        
+        

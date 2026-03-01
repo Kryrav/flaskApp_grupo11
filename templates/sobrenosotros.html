@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block contenido %}
-
 <div class="row">
     <div class="col-md-6">
 
@@ -41,6 +40,10 @@
                     <td>
                         <a href="/editar/{{ tarea.id }}" class="btn btn-sm btn-warning">
                             Editar
+                        </a>
+                        <a href="/eliminar/{{tarea.id}}" class="btn btn-sm btn-darger">
+                            eliminar
+                            
                         </a>
                     </td>
                 </tr>
